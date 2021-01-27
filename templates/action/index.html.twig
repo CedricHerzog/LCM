@@ -20,7 +20,7 @@
             {% for action in actions %}
             <tr>
                 <td>{{ action.id }}</td>
-                <td>{{ action.type }}</td>
+                <td>{{ action.actiontype.name }}</td>
                 <td>{{ action.amount }}</td>
                 <td>{{ action.origin.email }}</td>
                 <td>

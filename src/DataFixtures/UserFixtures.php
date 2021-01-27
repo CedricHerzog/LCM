@@ -27,6 +27,7 @@ class UserFixtures extends Fixture
             '123456'
         ));
         $user->setEmail('user@mlc.fr');
+        $user->setMembership(new \DateTime('2011-01-01T15:03:01.012345Z'));
         $manager->persist($user);
 
         $this->addReference(self::MLC_USER_REFERENCE, $user);
@@ -37,6 +38,7 @@ class UserFixtures extends Fixture
             '123456'
         ));
         $user->setEmail('test@mlc.fr');
+        $user->setMembership(new \DateTime());
         $manager->persist($user);
         
         

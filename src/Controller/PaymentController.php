@@ -15,8 +15,11 @@ class PaymentController extends AbstractController
     */
     public function index(): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $user = $this->getUser();
         return $this->render('payment/index.html.twig', [
             'controller_name' => 'PaymentController',
+            'user' => $user,
             ]
         );
     }

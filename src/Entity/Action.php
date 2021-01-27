@@ -18,11 +18,6 @@ class Action
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $type;
-
-    /**
      * @ORM\Column(type="float")
      */
     private $amount;
@@ -33,23 +28,17 @@ class Action
      */
     private $origin;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Type::class, inversedBy="action")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $actiontype;
+
     public function getId(): ?int
     {
         return $this->id;
     }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(string $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
+    
     public function getAmount(): ?float
     {
         return $this->amount;
@@ -70,6 +59,18 @@ class Action
     public function setOrigin(?User $origin): self
     {
         $this->origin = $origin;
+
+        return $this;
+    }
+
+    public function getActiontype(): ?Type
+    {
+        return $this->actiontype;
+    }
+
+    public function setActiontype(?Type $actiontype): self
+    {
+        $this->actiontype = $actiontype;
 
         return $this;
     }

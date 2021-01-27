@@ -44,6 +44,11 @@ class User implements UserInterface
      */
     private $actions;
 
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $membership;
+
     public function __construct()
     {
         $this->actions = new ArrayCollection();
@@ -153,6 +158,18 @@ class User implements UserInterface
                 $action->setOrigin(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMembership(): ?\DateTimeInterface
+    {
+        return $this->membership;
+    }
+
+    public function setMembership(?\DateTimeInterface $membership): self
+    {
+        $this->membership = $membership;
 
         return $this;
     }
