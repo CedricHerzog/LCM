@@ -12,6 +12,7 @@
                 <th>Id</th>
                 <th>Type</th>
                 <th>Amount</th>
+                <th>Origin</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,6 +22,7 @@
                 <td>{{ action.id }}</td>
                 <td>{{ action.type }}</td>
                 <td>{{ action.amount }}</td>
+                <td>{{ action.origin.email }}</td>
                 <td>
                     <a class="btn btn-secondary" href="{{ path('action_show', {'id': action.id}) }}">show</a>
                     <a class="btn btn-secondary" href="{{ path('action_edit', {'id': action.id}) }}">edit</a>
@@ -28,7 +30,7 @@
             </tr>
             {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="5">no records found</td>
             </tr>
             {% endfor %}
         </tbody>

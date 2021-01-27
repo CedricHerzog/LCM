@@ -11,12 +11,14 @@ use Doctrine\Persistence\ObjectManager;
 class UserFixtures extends Fixture
 {
     private $passwordEncoder;
+
+    public const MLC_USER_REFERENCE = 'user@mlc.fr';
     
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->passwordEncoder = $passwordEncoder;
     }
-    
+
     public function load(ObjectManager $manager)
     {
         $user = new User();
@@ -26,6 +28,8 @@ class UserFixtures extends Fixture
         ));
         $user->setEmail('user@mlc.fr');
         $manager->persist($user);
+
+        $this->addReference(self::MLC_USER_REFERENCE, $user);
 
         $user = new User();
         $user->setPassword($this->passwordEncoder->encodePassword(
