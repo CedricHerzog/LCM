@@ -42,6 +42,25 @@ class ExchangeController extends AbstractController
         ]);
     }
 
+    #[Route('/maps', name: 'exchange_maps', methods: ['GET'])]
+    public function exchange_maps(): Response
+    {
+        $shops = $this->getDoctrine()
+        ->getRepository(Exchange::class)
+        ->findAll();
+        
+        if (!$shops) {
+            throw $this->createNotFoundException(
+                'No shop found'
+            );
+        }
+        
+        return $this->render('maps/index.html.twig', [
+            'shops' => $shops,
+            'controller_name' => 'MapsController',
+        ]);
+    }
+
     #[Route('/{id}', name: 'exchange_show', methods: ['GET'])]
     public function show(Exchange $exchange): Response
     {

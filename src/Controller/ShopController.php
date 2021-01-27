@@ -42,6 +42,25 @@ class ShopController extends AbstractController
         ]);
     }
 
+    #[Route('/maps', name: 'shop_maps', methods: ['GET'])]
+    public function shop_maps(): Response
+    {
+        $shops = $this->getDoctrine()
+        ->getRepository(Shop::class)
+        ->findAll();
+        
+        if (!$shops) {
+            throw $this->createNotFoundException(
+                'No shop found'
+            );
+        }
+        
+        return $this->render('maps/index.html.twig', [
+            'shops' => $shops,
+            'controller_name' => 'MapsController',
+        ]);
+    }
+
     #[Route('/{id}', name: 'shop_show', methods: ['GET'])]
     public function show(Shop $shop): Response
     {

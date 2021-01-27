@@ -25,7 +25,14 @@ class UserFixtures extends Fixture
             '123456'
         ));
         $user->setEmail('user@mlc.fr');
+        $manager->persist($user);
 
+        $user = new User();
+        $user->setPassword($this->passwordEncoder->encodePassword(
+            $user,
+            '123456'
+        ));
+        $user->setEmail('test@mlc.fr');
         $manager->persist($user);
         
         

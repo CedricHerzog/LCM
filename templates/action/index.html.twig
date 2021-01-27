@@ -3,9 +3,10 @@
 {% block title %}Action index{% endblock %}
 
 {% block body %}
-    <h1>Action index</h1>
+<h1>Action index</h1>
 
-    <table class="table">
+<div class="table-responsive">
+    <table class="table table-striped table-dark">
         <thead>
             <tr>
                 <th>Id</th>
@@ -15,23 +16,24 @@
             </tr>
         </thead>
         <tbody>
-        {% for action in actions %}
+            {% for action in actions %}
             <tr>
                 <td>{{ action.id }}</td>
                 <td>{{ action.type }}</td>
                 <td>{{ action.amount }}</td>
                 <td>
-                    <a href="{{ path('action_show', {'id': action.id}) }}">show</a>
-                    <a href="{{ path('action_edit', {'id': action.id}) }}">edit</a>
+                    <a class="btn btn-primary" href="{{ path('action_show', {'id': action.id}) }}">show</a>
+                    <a class="btn btn-primary" href="{{ path('action_edit', {'id': action.id}) }}">edit</a>
                 </td>
             </tr>
-        {% else %}
+            {% else %}
             <tr>
                 <td colspan="4">no records found</td>
             </tr>
-        {% endfor %}
+            {% endfor %}
         </tbody>
     </table>
+</div>
 
-    <a href="{{ path('action_new') }}">Create new</a>
+<a class="btn btn-primary" href="{{ path('action_new') }}">Create new</a>
 {% endblock %}
