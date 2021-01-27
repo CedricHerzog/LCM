@@ -12,7 +12,7 @@
         <script src="https://js.stripe.com/v3/"></script>
         {% endblock %}
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">La cigogne</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,14 +76,14 @@
 
                     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Se déconnecter</a>
+                        <a class="nav-link" href="/logout">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Se connecter</a>
+                        <a class="nav-link" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/register">S'enregistrer</a>
+                        <a class="nav-link" href="/register">Register</a>
                     </li>
                     {% endif %}
                 </ul>

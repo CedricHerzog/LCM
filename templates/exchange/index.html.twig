@@ -28,8 +28,8 @@
                 <td>{{ exchange.lon }}</td>
                 <td>{{ exchange.money }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ path('exchange_show', {'id': exchange.id}) }}">show</a>
-                    <a class="btn btn-primary" href="{{ path('exchange_edit', {'id': exchange.id}) }}">edit</a>
+                    <a class="btn btn-secondary" href="{{ path('exchange_show', {'id': exchange.id}) }}">show</a>
+                    <a class="btn btn-secondary" href="{{ path('exchange_edit', {'id': exchange.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -40,5 +40,5 @@
         </tbody>
     </table>
 </div>
-    <a class="btn btn-primary" href="{{ path('exchange_new') }}">Create new</a>
+    <a class="btn btn-secondary" href="{{ path('exchange_new') }}">Create new</a>
 {% endblock %}

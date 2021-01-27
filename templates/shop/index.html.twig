@@ -26,8 +26,8 @@
                 <td>{{ shop.lat }}</td>
                 <td>{{ shop.lon }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ path('shop_show', {'id': shop.id}) }}">show</a>
-                    <a class="btn btn-primary" href="{{ path('shop_edit', {'id': shop.id}) }}">edit</a>
+                    <a class="btn btn-secondary" href="{{ path('shop_show', {'id': shop.id}) }}">show</a>
+                    <a class="btn btn-secondary" href="{{ path('shop_edit', {'id': shop.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +39,5 @@
     </table>
     </div>
 
-    <a class="btn btn-primary" href="{{ path('shop_new') }}">Create new</a>
+    <a class="btn btn-secondary" href="{{ path('shop_new') }}">Create new</a>
 {% endblock %}

@@ -22,8 +22,8 @@
                 <td>{{ action.type }}</td>
                 <td>{{ action.amount }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ path('action_show', {'id': action.id}) }}">show</a>
-                    <a class="btn btn-primary" href="{{ path('action_edit', {'id': action.id}) }}">edit</a>
+                    <a class="btn btn-secondary" href="{{ path('action_show', {'id': action.id}) }}">show</a>
+                    <a class="btn btn-secondary" href="{{ path('action_edit', {'id': action.id}) }}">edit</a>
                 </td>
             </tr>
             {% else %}
@@ -35,5 +35,5 @@
     </table>
 </div>
 
-<a class="btn btn-primary" href="{{ path('action_new') }}">Create new</a>
+<a class="btn btn-secondary" href="{{ path('action_new') }}">Create new</a>
 {% endblock %}
